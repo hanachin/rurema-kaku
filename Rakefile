@@ -4,4 +4,6 @@ directory "doctree" do
 end
 
 desc "setup rurema editor"
-task setup: %i(doctree)
+task setup: %i(doctree) do
+  sh "bundle check || bundle install"
+end
