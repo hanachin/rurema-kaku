@@ -6,7 +6,7 @@ CLOBBER.include('doctree', 'template', 'public/theme')
 
 desc "clone rurema/doctree"
 directory "doctree" do
-  sh "git clone https://github.com/rurema/doctree.git doctree"
+  sh "git clone --depth 10 https://github.com/rurema/doctree.git doctree"
 end
 
 task :bundle_install do
