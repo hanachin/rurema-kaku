@@ -59,3 +59,11 @@ guard(:livereload) do
 end
 
 guard(:rack)
+
+
+File.write(File.join('public', 'index.html'), <<HTML)
+<html>
+  <head><title>るりま書く</title></head>
+  <body>るりま書く</body>
+</html>
+HTML
