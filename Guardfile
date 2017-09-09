@@ -39,10 +39,10 @@ def generate_rdoc(rd_path)
 
   template = File.join(__dir__, 'template').shellescape
   if klass && method && target
-    o, s = Open3.capture2e('bitclust htmlfile --baseurl=http://localhost:9292 --templatedir=' + template + ' --target=' + target.shellescape + ' ' + rd_path.shellescape)
+    o, s = Open3.capture2e('bitclust htmlfile --baseurl=http://localhost:9292 --templatedir=' + template + ' --target=' + target.shellescape + ' --ruby=2.4.0 ' + rd_path.shellescape)
     raise "Please report the issue: target=#{target}\n#{o}" unless s.success?
   else
-    o, s = Open3.capture2e('bitclust htmlfile --baseurl=http://localhost:9292 --templatedir=' + template + ' ' + rd_path.shellescape)
+    o, s = Open3.capture2e('bitclust htmlfile --baseurl=http://localhost:9292 --templatedir=' + template + ' --ruby=2.4.0 ' + rd_path.shellescape)
   end
 
   File.write(File.join(__dir__, 'public', 'index.html'), o)
