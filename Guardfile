@@ -6,7 +6,7 @@ rurema_root = 'doctree'
 directories %W(#{rurema_root}/refm/api/src public)
 
 def generate_rdoc(rd_path)
-  o, s = Open3.capture2e('git diff ' + rd_path.shellescape)
+  o, s = Open3.capture2e('git diff -U0 ' + rd_path.shellescape)
 
   unless s.success?
     puts o
