@@ -13,7 +13,7 @@ def generate_rdoc(rd_path)
     return
   end
 
-  return unless m = o.match(/@@ -\d+,\d+ \+(\d+),\d+ @@/)
+  return unless m = o.match(/@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/)
 
   changed_line = m[1].to_i + 1 # @sinceなどで変更の1行目がコメントアウトされているとうまくメソッド名を探せないので+1しておく
   prev = File.foreach(rd_path).take(changed_line)
