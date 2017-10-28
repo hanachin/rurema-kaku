@@ -28,6 +28,8 @@ def generate_rdoc(rd_path)
     next unless line.start_with?('== ')
     if line.include?('Singleton Methods') || line.include?('Class Methods')
       break "#{klass}.#{method}"
+    elsif line.include?('Module Functions')
+      break "#{klass}.##{method}"
     elsif line.include?('Instance Methods') || line.include?('== Methods')
       break "#{klass}##{method}"
     elsif line.include?('Constants')
