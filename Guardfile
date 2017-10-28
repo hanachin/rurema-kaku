@@ -21,7 +21,7 @@ def generate_rdoc(rd_path)
   method = BitClust::MethodSignature.parse(method).name if method
   klass = prev.reverse_each.detect do |line|
     next unless line.start_with?('= ')
-    m = line.match(/^= (?:class|module) ([^ ]+) ?/)
+    m = line.match(/^= (?:class|module) ([^ \n]+) ?/)
     break m && m[1]
   end
   target = prev.reverse_each.detect do |line|
